@@ -6,13 +6,11 @@ order: 4
 
 # ¿Quién soy yo?
 
-Me llamo Javier Solís García, y soy la persona detrás de esta web. Comencé estudiando Ingeniería de Software en la Universidad de Sevilla. En 2019 comencé a interesarme por la IA, y el último año de la carrera (2020), comencé a trabajar con contratos asociados proyectos de investigación de IA en un departamento de la universidad, y me enamoré de la IA. Desde entonces he estado siempre investigando y aprendiendo más y más.
+Mi nombre es Javier Solís García, y soy la persona detrás de esta página web. Inicialmente estudié Ingeniería de Software en la Universidad de Sevilla. Mi interés por la Inteligencia Artificial (IA) comenzó en 2019, y durante mi último año de carrera (2020), tuve la oportunidad de trabajar en proyectos de investigación de IA en un departamento de la universidad, lo que despertó mi pasión por este campo. Desde entonces, he estado dedicado a investigar y aprender más sobre IA.
 
-Por ese motivo, decidí hacer el Máster Universitario en Inteligencia Artificial en la Universidad Politécnica de Madrid, y posteriormente comenzar mis estudios de doctorado en la Universidad de Sevilla.
+Motivado por mi interés en la IA, decidí cursar el Máster Universitario en Inteligencia Artificial en la Universidad Politécnica de Madrid, seguido por estudios de doctorado en la Universidad de Sevilla. Además de mis estudios, he colaborado con varias empresas externas desarrollando aplicaciones de IA para abordar sus desafíos.
 
-Adicionalmente, mientras estudio, he realizado colaboraciones con empresas externas, desarrollando múltiples aplicaciones de IA para resolver sus problemas.
-
-Por este motivo, realmente he probado muchos campos de la inteligencia artificial:
+Por este motivo, realmente he experimentado con muchos campos dentro de la inteligencia artificial:
 
 - Machine Learning/Deep Learning
 - Series temporales
@@ -22,20 +20,19 @@ Por este motivo, realmente he probado muchos campos de la inteligencia artificia
 - Modelos basados en grafos
 - Metaheurísticas
 
-Habrá algo más que me deje por ahí, pero prácticamente creo que puedo decir que he tocado de todo un poco (exceptuando modelos del lenguaje, que nunca he tenido el placer de trabajar con ellos 🙃 ).
+Habrá algo más que me deje por ahí, pero prácticamente creo que puedo decir que he tocado de todo un poco (exceptuando modelos del lenguaje, que nunca he tenido el placer de trabajar con ellos 🙃).
 
 # Motivación para crear la web
-Tenemos una comunidad muy bonita en la IA, y en el mundo de la programación en general. Se pueden encontrar multitudes de páginas, vídeos o artículos para aprender las bases de todo lo que mueve nuestra industria prácticamente gratis, y muchas compañías incluso apoyan esto publicando información sobre sus avances.
 
-Yo mismo me he visto beneficiado de esto cuando he querido aprender algunos temas para mi doctorado. Siempre puede ver los últimos artículos, y si me faltaba la base matemática para entender algunos conceptos (soy ingeniero de software realmente) siempre he encontrado recursos de gente que lo explicaba con mucho cariño. Esto, unido a la motivación de aprender, me ha abierto las puertas a entender siempre cualquier cosa que me haya hecho falta. Pero a su vez me ha hecho sentir una sensación de deuda con la comunidad.
+Nuestra comunidad en el ámbito de la IA y la programación es realmente bonita. Encontramos una gran cantidad de recursos, como páginas web, vídeos y artículos, que nos permiten aprender los fundamentos de forma gratuita. Además, muchas empresas contribuyen a este flujo de información compartiendo sus avances.
 
-Aprovechando que últimamente me estoy haciendo una especia de wiki personal en Notion para hacer resúmenes con explicaciones detalladas de lo que leo y poder recordarlo luego fácilmente, he pensado que podría convertir algunos de esos apuntes en un formato parecido a un blog, para poder publicarlos online, y de alguna forma poder re-transmitir el favor que me ha hecho la propia comunidad. Pero en este caso, tengo pensado en hacerlo en español, así también matamos dos pájaros de un tiro y damos un poco más contenido en español sobre estos temas, ya que estos recursos suelen ser ingleses.
+Personalmente, desde el comienzo de mis estudios me he estado beneficiando de todo esto. Siempre he podido acceder a los últimos artículos y, si necesito comprender conceptos matemáticos más complejos (ya que realmente soy ingeniero de software de formación), encuentro recursos donde se explican con claridad y dedicación. Esta disponibilidad de recursos y mi motivación por aprender han sido clave para ampliar mis conocimientos en cualquier área que me haya interesado. Sin embargo, esta experiencia también me ha hecho sentir en deuda con la comunidad.
 
-Intentaré en la medida de lo posible de dar fuentes de todo lo que ponga, y recomendar siempre visitar las fuentes originales y las fuentes que me sirvieron a mi para realmente comprender el tema; sin embargo no se si será siempre posible cuando trate temas de los que tengo apuntes más antiguos cuando era más riguroso en recoger la información.
+Recientemente, mientras organizaba mis notas en Notion para facilitar mi propio aprendizaje y estructurar lo que voy aprendiendo, me surgió la idea de compartir algunos de estos resúmenes en formato de blog. De esta manera, quiero devolver el favor a la comunidad que tanto me ha ayudado. Además, al hacerlo en español, contribuiría a aumentar el contenido disponible en este idioma sobre temas de IA, que a menudo se encuentran más desarrollados en inglés.
 
-Por último, tengo que recordar mi formación. Yo soy Ingeniero de Software, hice un máster de inteligencia artificial, y ahora mismo me encuentro haciendo un doctorado. Digo esto, porque no soy matemático y es probable que en algún punto pueda tener pequeños fallos o no ser todo lo riguroso posible. Sin embargo, siempre estaré dispuesto a actualizar la información si cometo algún error y me avisáis.
+Haré todo lo posible para proporcionar referencias y fuentes de información en mis publicaciones, animando siempre a los lectores a visitar las fuentes originales y los recursos que me han sido útiles para comprender los temas. Sin embargo, debo admitir que puede que no siempre sea posible, especialmente cuando se trata de temas sobre los que tomé apuntes hace tiempo y mi recopilación de información no fue tan rigurosa.
 
-Os dejo enlaces para que podais conectar conmigo!
+¡No dudes en conectarte conmigo a través de los enlaces que proporciono si deseas ponerte en contacto!
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![x][x-shield]][x-url]
