@@ -4,35 +4,34 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# ¿Quién soy yo?
+# Who am I?
 
-Mi nombre es Javier Solís García, y soy la persona detrás de esta página web. Inicialmente estudié Ingeniería de Software en la Universidad de Sevilla. Mi interés por la Inteligencia Artificial (IA) comenzó en 2019, y durante mi último año de carrera (2020), tuve la oportunidad de trabajar en proyectos de investigación de IA en un departamento de la universidad, lo que despertó mi pasión por este campo. Desde entonces, he estado dedicado a investigar y aprender más sobre IA.
+My name is **Javier Solís García**, and I am an AI/ML engineer with experience in both research and practical applications of artificial intelligence. I currently work as a Machine Learning Engineer at Avature, where I apply and adapt language and consistency models to tackle new challenges in NLP.
 
-Motivado por mi interés en la IA, decidí cursar el Máster Universitario en Inteligencia Artificial en la Universidad Politécnica de Madrid, seguido por estudios de doctorado en la Universidad de Sevilla. Además de mis estudios, he colaborado con varias empresas externas desarrollando aplicaciones de IA para abordar sus desafíos.
+My journey began while studying **Software Engineering at the University of Seville (2017–2021)**, where I first developed a strong interest in AI. During my undergraduate years, I was already collaborating on research projects, and since then I have continued to deepen my expertise in the field. I went on to pursue a **Master’s in Artificial Intelligence at the Polytechnic University of Madrid (2021–2022)**, where my thesis focused on hierarchical reinforcement learning. I am now completing my **PhD in AI at the University of Seville (2022–2025)**, with a dissertation on time series imputation using generative models.
 
-Por este motivo, realmente he experimentado con muchos campos dentro de la inteligencia artificial:
+I’ve had the opportunity to work in diverse environments:
 
-- Machine Learning/Deep Learning
-- Series temporales
-- Modelos generativos
-- Modelos de visión por computador
-- Aprendizaje por refuerzo
-- Modelos basados en grafos
-- Metaheurísticas
+- At **AtenIA Labs** (a spin-off of the University of Seville), where I developed computer vision models for drones, fault diagnosis in wind turbines, and anomaly detection in solar panels.
+- As a **specialist in Big Data and Deep Learning**, contributing to research on disease prediction in ICUs and forecasting in electricity markets.
+- Currently at **Avature**, focusing on generative models, NLP, and advanced deep learning applications.
 
-Habrá algo más que me deje por ahí, pero prácticamente creo que puedo decir que he tocado de todo un poco (exceptuando modelos del lenguaje, que nunca he tenido el placer de trabajar con ellos 🙃).
+Over the years, I have worked across a wide range of AI fields, including:
 
-# Motivación para crear la web
+- Generative models (diffusion, GANs, consistency).
+- Time series and spatiotemporal systems.
+- NLP and LLMs.
+- Computer vision.
+- Reinforcement learning.
+- Graph-based models and metaheuristics.
 
-Nuestra comunidad en el ámbito de la IA y la programación es realmente bonita. Encontramos una gran cantidad de recursos, como páginas web, vídeos y artículos, que nos permiten aprender los fundamentos de forma gratuita. Además, muchas empresas contribuyen a este flujo de información compartiendo sus avances.
+# My motivation
 
-Personalmente, desde el comienzo de mis estudios me he estado beneficiando de todo esto. Siempre he podido acceder a los últimos artículos y, si necesito comprender conceptos matemáticos más complejos (ya que realmente soy ingeniero de software de formación), encuentro recursos donde se explican con claridad y dedicación. Esta disponibilidad de recursos y mi motivación por aprender han sido clave para ampliar mis conocimientos en cualquier área que me haya interesado. Sin embargo, esta experiencia también me ha hecho sentir en deuda con la comunidad.
+I have always benefited from open access to papers, repositories, and community-shared resources. That is one of the reasons I decided to create this website and personal blog: to give back some of that knowledge.
 
-Recientemente, mientras organizaba mis notas en Notion para facilitar mi propio aprendizaje y estructurar lo que voy aprendiendo, me surgió la idea de compartir algunos de estos resúmenes en formato de blog. De esta manera, quiero devolver el favor a la comunidad que tanto me ha ayudado. Además, al hacerlo en español, contribuiría a aumentar el contenido disponible en este idioma sobre temas de IA, que a menudo se encuentran más desarrollados en inglés.
+Here you’ll find notes, summaries, and reflections drawn from my research, personal projects, and industry experience. I aim to keep them clear, with references whenever possible, and always with the goal of contributing to the community that has supported me from the very beginning.
 
-Haré todo lo posible para proporcionar referencias y fuentes de información en mis publicaciones, animando siempre a los lectores a visitar las fuentes originales y los recursos que me han sido útiles para comprender los temas. Sin embargo, debo admitir que puede que no siempre sea posible, especialmente cuando se trata de temas sobre los que tomé apuntes hace tiempo y mi recopilación de información no fue tan rigurosa.
-
-¡No dudes en conectarte conmigo a través de los enlaces que proporciono si deseas ponerte en contacto!
+Please feel free to connect with me through the links I provide if you would like to get in touch!
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![x][x-shield]][x-url]

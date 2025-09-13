@@ -16,10 +16,10 @@ timezone: Europe/Madrid
 
 title: Javier Solís García # the main title
 
-tagline: IA en español # it will display as the sub-title
+tagline: Research and Real-World AI Applications # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Una página sobre IA en español.
+  Exploring artificial intelligence. Articles, projects, and insights from research to industry.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
