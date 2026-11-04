@@ -22,7 +22,7 @@ image:
 
 Two days ago, Rikiya Takehi, Jayden Teoh, Alex Zhang and Omar Khattab (MIT CSAIL) published [*Sparks of Weight-Space Programming*](https://rikiyat.github.io/blog/weight-space-programming/). Their claim is that a language model can **read the weights of a neural network, work out what they compute, and write new weights that fix a problem**, with no training at all.
 
-I had to try it on a model I know inside out: **CoSTI**, the time-series imputation model I built during my PhD. So I opened a terminal, gave a coding agent (OpenAI Codex) the blog post, the CoSTI repository and the released checkpoints, and set three rules:
+I had to try it on a model I know inside out: **CoSTI**, the time-series imputation model I built during my PhD. So I opened a terminal, gave a coding agent (Astra 6 Max, running in OpenAI Codex) the blog post, the CoSTI repository and the released checkpoints, and set three rules:
 
 1. Follow the weight-space-programming approach.
 2. No gradient-based training of any kind.
