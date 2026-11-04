@@ -116,14 +116,21 @@ so that `z₂₄₆ = 16 · (z₁₉₈ − t)`. Unit 246 now stays at zero whil
 | 226 | 1.5 | −4 | +1 − 4 = −3: falls |
 | 179 | 2 | +3 | −3 + 3 = 0: flat, switched off |
 
-The result is a small triangle: it adds a little to the prediction (at most about 0.09 in normalized units) while `z₁₉₈` is between 0 and 2, peaks at 1.5, and adds nothing anywhere else. It is the orange curve in the right panel of the figure below.
+The result is a small triangle: it adds a little to the prediction (at most about 0.09 in normalized units) while `z₁₉₈` is between 0 and 2, peaks at 1.5, and adds nothing anywhere else. It is the orange curve in panel ③ of the figure below.
+
+**The other neurons add, they don't modulate.** Unit 198 itself is not touched by this edit. The three idle neurons read the same input as unit 198, compute their own small ramps, and those ramps are added to the final output next to unit 198's own contribution. The net effect is as if unit 198's response curve had been reshaped, but it is built in parallel.
 
 **Why not just scale unit 198?** The diagnosis said unit 198 left predictions too low for `z₁₉₈` between 0 and 2, but too high above 2. Raising its output weight would fix the first range and make the second worse. The bump acts only where the error was. It is as if the agent had added `if 0 < z₁₉₈ < 2: add a little` to the model, written directly into its weights.
 
 **The ramp uses the same trick on a difference.** Units 181 and 150 copy `64 · (input weights of 38 − input weights of 198)`, so they watch `d = z₃₈ − z₁₉₈`. The first switches on at `d = 0` and the second cancels it at `d = 1`, which gives `0.070 · clip(d, 0, 1)`. Normally `z₃₈ < z₁₉₈`, so the ramp only acts in the rare cases where unit 38 overtakes 198.
 
-![Three panels: unit 198's error by the value of its input, the three idle neurons that each switch on at a threshold, and their sum, a correction that acts only between 0 and 2.](/assets/posts/2026-11-04-weight-space-costi/03_write_the_weights.png){: width="2400" height="1350" }
-_Left: the problem in unit 198. Middle: the three idle neurons. Right: their sum, the exact correction stored in the final weights._
+![Four panels: unit 198's error by the value of its input, the three idle neurons that each switch on at a threshold, their sum, and the error again with the fix, almost gone between 0 and 2.](/assets/posts/2026-11-04-weight-space-costi/03_fix_unit_198.png){: width="2400" height="1350" }
+_① Unit 198's error before the fix (V1), by the value of its input. ② The three idle neurons, each switching on at its own threshold. ③ Their sum, the exact correction stored in the weights. ④ The same error with only this correction added: in the 0–2 range it almost disappears, and above 2 it does not change. These are the 128 calibration patients the edit was designed on, so ④ shows that the edit does what it was built to do, not that it generalizes. Generalization is judged on the confirmation patients and the test set below._
+
+The ramp of V4 next to the bump, with the full recipe:
+
+![The bump on unit 198 and the capped ramp on the contrast between units 38 and 198, each with its building blocks, plus the full V4 recipe.](/assets/posts/2026-11-04-weight-space-costi/04_two_programs.png){: width="2400" height="1350" }
+_Faint lines are the individual neurons; the thick line is their sum._
 
 The final model, V4, combines six edits like these: 965 values in 5 tensors, all of them in the output head. I can read every one of them in a JSON file and explain what it does.
 
@@ -138,11 +145,11 @@ This is the part I didn't expect. The agent designed a protocol that a lucky edi
 
 Most ideas failed. Out of 17 hypotheses, 5 were kept, 10 rejected and 2 were still pending when I stopped.
 
-![17 hypotheses with their MAE and MSE reduction on confirmation patients: kept, rejected and pending.](/assets/posts/2026-11-04-weight-space-costi/04_search.png){: width="2400" height="1350" }
+![17 hypotheses with their MAE and MSE reduction on confirmation patients: kept, rejected and pending.](/assets/posts/2026-11-04-weight-space-costi/05_search.png){: width="2400" height="1350" }
 
 Seen in order, the search looks like a staircase. The accepted model only moves when an edit passes, and most iterations leave it where it was:
 
-![MAE and MSE reduction at each iteration. A blue staircase marks the accepted model, V1 to V4, with the rejected and pending ideas around it.](/assets/posts/2026-11-04-weight-space-costi/05_progress.png){: width="2400" height="1350" }
+![MAE and MSE reduction at each iteration. A blue staircase marks the accepted model, V1 to V4, with the rejected and pending ideas around it.](/assets/posts/2026-11-04-weight-space-costi/06_progress.png){: width="2400" height="1350" }
 _The error went down one kept edit at a time._
 
 Two cases show why the protocol matters:
@@ -166,7 +173,7 @@ The 95% interval for the per-patient change excludes zero for both metrics, and 
 
 It's a real improvement, measured carefully, but it's easy to oversell. These are the caveats I think matter most:
 
-![Error reduction on the test set by variable group and by version.](/assets/posts/2026-11-04-weight-space-costi/06_where_the_gain_comes_from.png){: width="2400" height="1350" }
+![Error reduction on the test set by variable group and by version.](/assets/posts/2026-11-04-weight-space-costi/07_where_the_gain_comes_from.png){: width="2400" height="1350" }
 
 - **Most of the MAE gain comes from easy columns.** Six of the 40 variables are context: age, gender, ICU unit, admission time and length of stay. They account for 90% of the MAE reduction. On the 34 vitals and lab values, the improvement is only 0.29% MAE and 0.47% MSE.
 - **The simplest edit did most of the work.** V1, little more than recalibrating the output, already gives −2.29% MAE. The programmed functions add the last 0.29%.
@@ -175,7 +182,7 @@ It's a real improvement, measured carefully, but it's easy to oversell. These ar
 - **One checkpoint, one benchmark.** In the paper we report the average of five trained models. This is one of them, so these numbers are not comparable with the paper's.
 - **It explains functions, not medicine.** I know exactly what function each edit adds to the head. I don't know what clinical concept a neuron stands for, and probably none maps cleanly to one.
 
-![Change in MAE and MSE for each of the 40 PhysioNet variables, V4 against the original model. Context variables improve strongly; some sparse lab values get worse.](/assets/posts/2026-11-04-weight-space-costi/07_per_variable.png){: width="2400" height="2250" }
+![Change in MAE and MSE for each of the 40 PhysioNet variables, V4 against the original model. Context variables improve strongly; some sparse lab values get worse.](/assets/posts/2026-11-04-weight-space-costi/08_per_variable.png){: width="2400" height="2250" }
 _Per-variable change on the test set. Blue is better, red is worse._
 
 ## What didn't work
