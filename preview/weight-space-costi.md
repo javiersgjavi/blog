@@ -93,13 +93,37 @@ Each diagnosis became one explicit edit, with its coefficients **fixed before it
 
 The simplest edits were plain arithmetic: scale the output by 1.005, shift it by −0.012, and make units 198 and 38 1% stronger. That is version V1, which changes 193 values.
 
-The trick I liked most is how it **built new functions out of idle neurons**. A GELU with a very steep input behaves like an on/off switch. To make an idle neuron switch on exactly when unit 198's input passes a threshold, the agent copied unit 198's input weights into it, multiplied by 16, set the bias to put the switch at that threshold, and gave it a tiny output weight. A few of these switches added together draw a shape.
+The trick I liked most is how it **built new functions out of idle neurons**. It rests on four facts.
+
+**Idle neurons are free space.** Each neuron adds `aⱼ · GELU(zⱼ)` to the output. The 176 idle neurons have `aⱼ ≈ 0`, so whatever they compute never reaches the prediction. Their input weights, bias and output weight can be overwritten without changing anything the model already did, much like reusing unused variables in a program.
+
+**A steep GELU is a switch.** GELU(x) is close to 0 for negative x and close to x for positive x, with a smooth bend around 0. Multiply its input by 16 and the bend gets 16 times sharper. In practice it becomes a ReLU, with a clean kink at 0.
+
+**An idle neuron can watch another neuron.** To make idle unit 246 switch on when unit 198's input crosses a threshold `t`, the agent set
+
+```text
+input weights of 246  =  16 · input weights of 198
+bias of 246           =  16 · (bias of 198 − t)
+```
+
+so that `z₂₄₆ = 16 · (z₁₉₈ − t)`. Unit 246 now stays at zero while `z₁₉₈ < t` and grows in a straight line above it. Its output weight, kept small, sets how steep that ramp is in the final prediction.
+
+**Adding ramps draws shapes.** Each reused neuron contributes a ramp that starts at its own threshold, and a sum of ramps can draw any shape made of straight segments. The bump on unit 198 uses three:
+
+| Neuron | Switches on at `z₁₉₈ =` | Relative output weight | Slope of the sum after that point |
+|---|---:|---:|---|
+| 246 | 0 | +1 | +1: starts rising |
+| 226 | 1.5 | −4 | +1 − 4 = −3: falls |
+| 179 | 2 | +3 | −3 + 3 = 0: flat, switched off |
+
+The result is a small triangle: it adds a little to the prediction (at most about 0.09 in normalized units) while `z₁₉₈` is between 0 and 2, peaks at 1.5, and adds nothing anywhere else. It is the orange curve in the left panel below.
+
+**Why not just scale unit 198?** The diagnosis said unit 198 left predictions too low for `z₁₉₈` between 0 and 2, but too high above 2. Raising its output weight would fix the first range and make the second worse. The bump acts only where the error was. It is as if the agent had added `if 0 < z₁₉₈ < 2: add a little` to the model, written directly into its weights.
+
+**The ramp uses the same trick on a difference.** Units 181 and 150 copy `64 · (input weights of 38 − input weights of 198)`, so they watch `d = z₃₈ − z₁₉₈`. The first switches on at `d = 0` and the second cancels it at `d = 1`, which gives `0.070 · clip(d, 0, 1)`. Normally `z₃₈ < z₁₉₈`, so the ramp only acts in the rare cases where unit 38 overtakes 198.
 
 ![The two functions programmed into idle neurons: a bump on unit 198 and a capped ramp on the contrast between units 38 and 198, plus the full V4 recipe.](/assets/posts/2026-11-04-weight-space-costi/03_write_the_weights.png){: width="2400" height="1350" }
-_The curves are the exact functions stored in the final weights._
-
-- **A bump on unit 198**, made from three idle neurons. It adds a little to the output only where unit 198 was underestimating, and switches off afterwards.
-- **A capped ramp**, made from two more. It fires only in the rare cases where unit 38 overtakes unit 198.
+_The curves are the exact functions stored in the final weights. Faint lines are the individual building blocks._
 
 The final model, V4, combines six edits like these: 965 values in 5 tensors, all of them in the output head. I can read every one of them in a JSON file and explain what it does.
 
