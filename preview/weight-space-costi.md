@@ -146,10 +146,13 @@ It's a real improvement, measured carefully, but it's easy to oversell. These ar
 
 - **Most of the MAE gain comes from easy columns.** Six of the 40 variables are context: age, gender, ICU unit, admission time and length of stay. They account for 90% of the MAE reduction. On the 34 vitals and lab values, the improvement is only 0.29% MAE and 0.47% MSE.
 - **The simplest edit did most of the work.** V1, little more than recalibrating the output, already gives −2.29% MAE. The programmed functions add the last 0.29%.
-- **Not every variable improves.** 17 of the 40 improve on both metrics, and some sparse lab values, like pH, get clearly worse.
+- **Not every variable improves.** 17 of the 40 improve on both metrics, and some sparse lab values, like pH, get clearly worse (see the figure below).
 - **The test set was used twice.** V1 was evaluated on test before V4 was built. No test data was used to design any edit, but a fresh evaluation would be the proper confirmation.
 - **One checkpoint, one benchmark.** In the paper we report the average of five trained models. This is one of them, so these numbers are not comparable with the paper's.
 - **It explains functions, not medicine.** I know exactly what function each edit adds to the head. I don't know what clinical concept a neuron stands for, and probably none maps cleanly to one.
+
+![Change in MAE and MSE for each of the 40 PhysioNet variables, V4 against the original model. Context variables improve strongly; some sparse lab values get worse.](/assets/posts/2026-11-04-weight-space-costi/07_per_variable.png){: width="2400" height="2250" }
+_Per-variable change on the test set. Blue is better, red is worse._
 
 ## What didn't work
 
